@@ -9,12 +9,8 @@ const temp_secret = speakeasy.generateSecret()
 
 router.get('/', async function(req, res, next) {
 
-  // const secret = speakeasy.generateSecret({length: 20});
-
-
-  console.log(temp_secret);
   // google authenticator use default algorithm sha1
-  const url = speakeasy.otpauthURL({ secret: temp_secret.ascii, label: 'Mysabay_User_ID', algorithm: 'sha512', encoding:'ascii' });
+  const url = speakeasy.otpauthURL({ secret: temp_secret.ascii, label: 'Mysabay_User_ID', algorithm: 'sha512', encoding:'ascii', issuer:'Sabay' });
   
   //for example
   const test1 = speakeasy.otpauthURL({ secret: temp_secret.base32, label: 'User_ID', algorithm: 'sha512' , encoding:'base32' });
